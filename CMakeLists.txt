@@ -5,16 +5,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(main)
 
+find_package(Vulkan REQUIRED)
+
 add_subdirectory(external/glfw)
 add_subdirectory(external/glm)
 
 add_executable(main 
     main.cpp
 
-    src/logger.cpp
+    src/first_app.cpp
     src/window.cpp
-
-    glad/src/glad.c
 )
 
 target_include_directories(main
@@ -23,9 +23,9 @@ target_include_directories(main
     PRIVATE external/glm
 
     PRIVATE src/include
-    PRIVATE glad/include
 )
 
 target_link_libraries(main
     PRIVATE glfw
+    PRIVATE Vulkan::Vulkan
 )

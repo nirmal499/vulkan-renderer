@@ -1,21 +1,21 @@
-#include <memory>
-
-#include <window/window.hpp>
-#include <tool/logger.hpp>
+#include <app/first_app.hpp>
+#include <iostream>
 
 int main(int argc, char *argv[])
 {
-  std::unique_ptr<Window> w = std::make_unique<Window>();
+    FirstApp app;
 
-  if (!w->init(640, 480, "OGL Renderer"))
-  {
-    Logger::log(1, "%s error: Window init error\n", __FUNCTION__);
-    return -1;
-  }
+    try
+    {
+        app.run();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << "\n";
+        return EXIT_FAILURE;
+    }
 
-  w->main_loop();
+    return EXIT_SUCCESS;
 
-  w->clean_up();
-
-  return 0;
+    return 0;
 }
