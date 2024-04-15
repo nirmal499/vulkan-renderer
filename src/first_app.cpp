@@ -2,7 +2,7 @@
 
 void FirstApp::run()
 {
-    while(!m_my_window.should_close())
+    while(!m_window.should_close())
     {
         glfwPollEvents();
     }

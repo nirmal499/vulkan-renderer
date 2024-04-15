@@ -15,6 +15,7 @@ add_executable(main
 
     src/first_app.cpp
     src/window.cpp
+    src/pipeline.cpp
 )
 
 target_include_directories(main
